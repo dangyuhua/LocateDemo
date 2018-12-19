@@ -19,4 +19,6 @@
 //纬度
 @property (nonatomic, assign) CLLocationDegrees latitude;
 
++(LocateModel *)shareModel;
+
 @end

@@ -10,4 +10,16 @@
 
 @implementation LocateModel
 
+static LocateModel *model = nil;
+
++(LocateModel *)shareModel{
+    static dispatch_once_t onceToken;
+    dispatch_once(& onceToken, ^{
+        if (model == nil) {
+            model = [[LocateModel alloc]init];
+        }
+    });
+    return model;
+}
+
 @end

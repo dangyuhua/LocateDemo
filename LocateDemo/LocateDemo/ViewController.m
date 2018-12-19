@@ -42,6 +42,10 @@
     NSLog(@"经度：%lf",location.longitude);
     NSLog(@"纬度：%lf",location.latitude);
     self.city.text = [NSString stringWithFormat:@"%@-%@-%f-%f",location.administrativeArea,location.locality,location.longitude,location.latitude];
+    [[LocateModel shareModel]setLongitude:location.longitude];
+    [[LocateModel shareModel]setLatitude:location.latitude];
+    [[LocateModel shareModel]setLocality:location.locality];
+    [[LocateModel shareModel]setAdministrativeArea:location.administrativeArea];
 }
 
 - (void)dealloc{
