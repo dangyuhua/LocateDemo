@@ -12,7 +12,7 @@
 @interface LocateModel : NSObject
 //省 直辖市
 @property (nonatomic, copy) NSString * administrativeArea;
-// 地级市 直辖市区
+// 地级市 直辖市区  (直辖市只能通过省份获取)
 @property (nonatomic, copy) NSString * locality;
 //经度
 @property (nonatomic, assign) CLLocationDegrees longitude;
