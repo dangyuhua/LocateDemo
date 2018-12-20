@@ -41,15 +41,19 @@
             CLPlacemark * placemark = placemarks.firstObject;
             location.administrativeArea = placemark.administrativeArea;
             location.locality = placemark.locality;
-            if ([self.delegate respondsToSelector:@selector(endLocate:)]) {
-                [self.delegate endLocate:location];
-            }
+            [[LocateModel shareModel]setIsAccredit:YES];
+            self.locateSucceedBlcok(location);
         }
     }];
 }
 
--(void)remove{
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied){
+        [[LocateModel shareModel]setIsAccredit:NO];
+        self.locateFailBlcok();
+    }
     
 }
+
 
 @end

@@ -9,18 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "LocateModel.h"
 
-@protocol LocateManageDelegate;
-
 @interface LocateManage : NSObject
 
-@property (nonatomic, weak) id<LocateManageDelegate> delegate;
+@property(nonatomic,strong)void (^locateSucceedBlcok)(LocateModel * location);
+@property(nonatomic,strong)void (^locateFailBlcok)(void);
 
 -(void)beginLocate;
-
-@end
-
-@protocol LocateManageDelegate <NSObject>
-
--(void)endLocate:(LocateModel *)location;
 
 @end
